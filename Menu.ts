@@ -5,7 +5,24 @@ console.log(Colors.fgGreen + "BANCO DO BRAZIL COM Z" + Colors.reset);
 let opcao: number = 0;
 
 while (opcao != 9) {
-    console.log("\n************************************************************\n                 BANCO DO BRAZIL COM Z\n************************************************************\n\n1 - Criar Conta\n2 - Listar todas as Contas\n3 - Buscar Conta por Numero\n4 - Atualizar Dados da Conta\n5 - Apagar Conta\n6 - Sacar\n7 - Depositar\n8 - Transferir valores entre Contas\n9 - Sair\n\n************************************************************\nEntre com a opção desejada:\n");
+    console.log(
+Colors.fgYellow + "\n************************************************************" + Colors.reset +
+"\n" + Colors.fgGreen + "                 BANCO DO BRAZIL COM Z" + Colors.reset +
+"\n" + Colors.fgYellow + "************************************************************" + Colors.reset +
+"\n\n" + Colors.fgCyan +
+"1 - Criar Conta\n" +
+"2 - Listar todas as Contas\n" +
+"3 - Buscar Conta por Numero\n" +
+"4 - Atualizar Dados da Conta\n" +
+"5 - Apagar Conta\n" +
+"6 - Sacar\n" +
+"7 - Depositar\n" +
+"8 - Transferir valores entre Contas\n" +
+"9 - Sair\n" +
+Colors.reset +
+"\n" + Colors.fgYellow + "************************************************************" + Colors.reset +
+"\n" + Colors.fgWhite + "Entre com a opção desejada:\n" + Colors.reset
+);;
 
     opcao = readline.questionInt("Digite um número: ")
 
@@ -52,5 +69,5 @@ while (opcao != 9) {
             break;
 
     }
-    
+
 }
