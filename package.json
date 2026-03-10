@@ -10,10 +10,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^25.4.0",
     "@types/readline-sync": "^1.4.8",
     "typescript": "^5.9.3"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliagasantos/conta_bancaria.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/juliagasantos/conta_bancaria/issues"
+  },
+  "homepage": "https://github.com/juliagasantos/conta_bancaria#readme"
 }
