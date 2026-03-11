@@ -1,3 +1,4 @@
+import { Colors } from "../util/Colors";
 export class Conta {
   private _numero: number;
   private _agencia: number;
@@ -86,9 +87,9 @@ export class Conta {
         tipo = "Conta Poupança";
         break;
     }
-    console.log("\n\n*****************************************************");
+    console.log(Colors.fgGreen +"\n\n*****************************************************" + Colors.reset );
     console.log("Dados da Conta:");
-    console.log("*****************************************************");
+    console.log(Colors.fgGreen +"*****************************************************"+ Colors.reset);
     console.log("Numero da Conta: " + this._numero);
     console.log("Agência: " + this._agencia);
     console.log("Tipo da Conta: " + tipo);
