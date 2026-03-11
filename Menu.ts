@@ -2,70 +2,45 @@ import readlinesync = require("readline-sync");
 import { Colors } from "./src/util/Colors";
 import { Conta } from "./src/model/Conta";
 
+const conta: Conta = new Conta(1, 123, 1, "Júlia", 10000);
+conta.visualizar();
+conta.sacar(10500);
+conta.visualizar();
+conta.depositar(5000);
+conta.visualizar();
+
+
+const conta2: Conta = new Conta(2, 156, 2, "Mario", 7800);
+conta2.visualizar();
+conta2.sacar(7800);
+conta2.visualizar();
+conta2.depositar(900);
+conta2.visualizar();
+
 export function main() {
   let opcao: number;
 
 
-  const conta: Conta = new Conta(1, 123, 1, "Júlia", 10000);
-  conta.visualizar();
-  conta.sacar(10500);
-  conta.visualizar();
-  conta.depositar(5000);
-  conta.visualizar();
-
-
-  const conta2: Conta = new Conta(2, 156, 2, "Mario", 7800);
-  conta2.visualizar();
-  conta2.sacar(7800);
-  conta2.visualizar();
-  conta2.depositar(900);
-  conta2.visualizar();
-
   while (true) {
-    Colors.fgYellow +
-      console.log("*****************************************************");
-    +Colors.reset;
+    console.log(Colors.fgYellow + "*****************************************************" + Colors.reset);
     console.log("                                                     ");
-    Colors.fgGreen +
-      console.log("                BANCO DO BRAZIL COM Z                ");
-    +Colors.reset;
+    console.log(Colors.fgGreen + "                BANCO DO BRAZIL COM Z                " + Colors.reset);
     console.log("                                                     ");
-    Colors.fgYellow +
-      console.log("*****************************************************");
-    +Colors.reset;
+    console.log(Colors.fgYellow + "*****************************************************" + Colors.reset);
     console.log("                                                     ");
-    Colors.fgCyan +
-      console.log("            1 - Criar Conta                          ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            2 - Listar todas as Contas               ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            3 - Buscar Conta por Numero              ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            4 - Atualizar Dados da Conta             ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            5 - Apagar Conta                         ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            6 - Sacar                                ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            7 - Depositar                            ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            8 - Transferir valores entre Contas      ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("            9 - Sair                                 ");
-    +Colors.reset;
-    Colors.fgCyan +
-      console.log("                                                     ");
-    Colors.fgYellow +
-      console.log("*****************************************************");
-    +Colors.reset;
+
+    console.log(Colors.fgCyan + "            1 - Criar Conta                          " + Colors.reset);
+    console.log(Colors.fgCyan + "            2 - Listar todas as Contas               " + Colors.reset);
+    console.log(Colors.fgCyan + "            3 - Buscar Conta por Numero              " + Colors.reset);
+    console.log(Colors.fgCyan + "            4 - Atualizar Dados da Conta             " + Colors.reset);
+    console.log(Colors.fgCyan + "            5 - Apagar Conta                         " + Colors.reset);
+    console.log(Colors.fgCyan + "            6 - Sacar                                " + Colors.reset);
+    console.log(Colors.fgCyan + "            7 - Depositar                            " + Colors.reset);
+    console.log(Colors.fgCyan + "            8 - Transferir valores entre Contas      " + Colors.reset);
+    console.log(Colors.fgCyan + "            9 - Sair                                 " + Colors.reset);
+
+    console.log("                                                     ");
+    console.log(Colors.fgYellow + "*****************************************************" + Colors.reset);
     console.log("                                                     ");
 
     console.log("Entre com a opção desejada: ");
@@ -119,4 +94,14 @@ export function main() {
     }
 
   }
+
 }
+export function sobre(): void {
+  console.log("\n*****************************************************");
+  console.log("Projeto Desenvolvido por: Júlia Santos");
+  console.log("Generation Brasil - julias@genstudents.org");
+  console.log("github.com/juliagasantos");
+  console.log("*****************************************************");
+}
+
+main();
