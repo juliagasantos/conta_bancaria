@@ -52,28 +52,97 @@ export class ContaController implements ContaRepository {
       );
   }
 
- deletar(numero: number): void {
-  let buscaConta = this.buscarNoArray(numero);
+  deletar(numero: number): void {
+    let buscaConta = this.buscarNoArray(numero);
 
-  if (buscaConta != null) {
-    this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1);
-    console.log(Colors.fgGreen,"\nA Conta numero: " + numero +
-      " foi apagada com sucesso!", Colors.reset);
-  } else
-    console.log(Colors.fgRed,"\nA Conta numero: " + numero +
-      " não foi encontrada!", Colors.reset);
-}
+    if (buscaConta != null) {
+      this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1);
+      console.log(
+        Colors.fgGreen,
+        "\nA Conta numero: " + numero + " foi apagada com sucesso!",
+        Colors.reset,
+      );
+    } else
+      console.log(
+        Colors.fgRed,
+        "\nA Conta numero: " + numero + " não foi encontrada!",
+        Colors.reset,
+      );
+  }
 
   sacar(numero: number, valor: number): void {
-    throw new Error("Method not implemented.");
+    let conta = this.buscarNoArray(numero);
+
+    if (conta != null) {
+      if (conta.sacar(valor) == true)
+        console.log(
+          Colors.fgGreen,
+          "\nO Saque na Conta numero: " + numero + " foi efetuado com sucesso!",
+          Colors.reset,
+        );
+    } else
+      console.log(
+        Colors.fgRed,
+        "\nA Conta numero: " + numero + " não foi encontrada!",
+        Colors.reset,
+      );
   }
 
   depositar(numero: number, valor: number): void {
-    throw new Error("Method not implemented.");
+    let conta = this.buscarNoArray(numero);
+
+    if (conta != null) {
+      conta.depositar(valor);
+      console.log(
+        Colors.fgGreen,
+        "\nO Depósito na Conta numero: " +
+          numero +
+          " foi efetuado com sucesso!",
+        Colors.reset,
+      );
+    } else
+      console.log(
+        Colors.fgRed,
+        "\nA Conta numero: " + numero + " não foi encontrada!",
+        Colors.reset,
+      );
   }
 
   transferir(numeroOrigem: number, numeroDestino: number, valor: number): void {
-    throw new Error("Method not implemented.");
+    let contaOrigem = this.buscarNoArray(numeroOrigem);
+    let contaDestino = this.buscarNoArray(numeroDestino);
+
+    if (contaOrigem != null && contaDestino != null) {
+      if (contaOrigem.sacar(valor)) {
+        contaDestino.depositar(valor);
+
+        console.log(
+          Colors.fgGreen,
+          "\nA Transferência da Conta numero: " +
+            numeroOrigem +
+            " para a Conta numero: " +
+            numeroDestino +
+            " foi efetuada com sucesso!",
+          Colors.reset,
+        );
+      } else {
+        console.log(
+          Colors.fgRed,
+          "\nSaldo insuficiente para transferência!",
+          Colors.reset,
+        );
+      }
+    } else {
+      console.log(
+        Colors.fgRed,
+        "\nA Conta numero: " +
+          numeroOrigem +
+          " e/ou a Conta numero: " +
+          numeroDestino +
+          " não foram encontradas!",
+        Colors.reset,
+      );
+    }
   }
 
   public gerarNumero(): number {

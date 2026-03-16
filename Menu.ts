@@ -10,7 +10,15 @@ export function main() {
   let contas: ContaController = new ContaController();
 
   //Variáveis Auxiliares
-  let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
+  let opcao,
+    numero,
+    agencia,
+    tipo,
+    saldo,
+    limite,
+    aniversario,
+    valor,
+    numeroDestino: number;
   let titular: string;
   const tiposContas = ["Conta Corrente", "Conta poupanca"];
   console.log("\nCriar Contas\n");
@@ -315,16 +323,52 @@ export function main() {
         keyPress();
         break;
       case 6:
-        console.log("\n\nSaque\n\n");
+        console.log(Colors.fgWhite, "\n\nSaque\n\n", Colors.reset);
 
+        console.log("Digite o número da Conta: ");
+        numero = readlinesync.questionInt("");
+
+        console.log("\nDigite o valor do Saque (R$): ");
+        valor = readlinesync.questionFloat("");
+
+        contas.sacar(numero, valor);
+
+        keyPress();
         break;
       case 7:
-        console.log("\n\nDepósito\n\n");
+        console.log(Colors.fgWhite, "\n\nDepósito\n\n", Colors.reset);
 
+        console.log("Digite o número da Conta: ");
+        numero = readlinesync.questionInt("");
+
+        console.log("\nDigite o valor do Depósito (R$): ");
+        valor = readlinesync.questionFloat("");
+
+        contas.depositar(numero, valor);
+
+        keyPress();
         break;
       case 8:
-        console.log("\n\nTransferência entre Contas\n\n");
+        console.log(
+          Colors.fgWhite,
+          "\n\nTransferência entre Contas\n\n",
+          Colors.reset,
+        );
 
+        console.log("Digite o número da Conta de Origem: ");
+        numero = readlinesync.questionInt("");
+
+        console.log("Digite o número da Conta de Destino: ");
+        numeroDestino = readlinesync.questionInt("");
+
+        console.log("\nDigite o valor da Transferência (R$): ");
+        valor = readlinesync.questionFloat("");
+
+        contas.transferir(numero, numeroDestino, valor);
+
+        keyPress();
+        break;
+        
       case 9:
         console.log("\nOpção selecionada: SAIR");
         break;
